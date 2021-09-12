@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/png" href="./favicon.png"/>
+	  <link rel="stylesheet" type="text/css" href="./grade-calculator.css">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:500,600"/> -->
+    <title>ECTS Grade Calculator</title>
+  </head>
+  <body>
+    <div id="main">
+      <div id="grade-header">
+        <h1>ECTS Grade Calculator</h1>
+        <p>Want to see how well you've done in college? Enter your grades into
+        the calculator and it'll give you your grade per semester as well as your
+        final grade. Enjoy!</p>
+      </div>
+      <div id="grade-wrapper">
+        <div class="grade-container">
+          <h5 class="grade-semester-title">Semester 1</h5>
+          <div>
+            <table class="grade-semester-table">
+              <colgroup>
+                <col class="wide" />
+                <col class="narrow" />
+                <col class="narrow" />
+              </colgroup>
+              <tr>
+                <th class="left">Course</th>
+                <th class="right">ECTS</th>
+                <th class="right">Grade</th>
+              </tr>
+              <tr class="content">
+                <td class="left"><input type="text" placeholder="Course name"></td>
+                <td class="right"><input type="text" placeholder="ECTS"></td>
+                <td class="right"><input type="text" placeholder="Grade"></td>
+              </tr>
+              <tr class="content">
+                <td class="left"><input type="text" placeholder="Course name"></td>
+                <td class="right"><input type="text" placeholder="ECTS"></td>
+                <td class="right"><input type="text" placeholder="Grade"></td>
+              </tr>
+            </table>
+            <button class="grade-semester-table-button">Add new course</button>
+          </div>
+          <button class="grade-semester-add-button">Add new semester</button>
+        </div>
+        <!-- <div class="grade-container">
+        </div> -->
+      </div>
+    </div>
+  </body>
+</html>
