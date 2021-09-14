@@ -1,18 +1,27 @@
 body {
   background: var(--background-color);
-  color: #222222;
+  color: var(--heading-color);
   font-family: "Nunito", sans-serif;
   
-  --primary-color: #3BC449;
-  --background-color: #f0faf0;
-  --heading-color: #222222;
-  --paragraph-color: #444444;
+  --primary-color: #3bc449;
+  --primary-color-b1: #52cb5e;
+  --secondary-color: #ef5d60;
+  --background-color: #f7f7f2;
+  --heading-color: #333745;
+  --paragraph-color: #4e546a;
+  --label-color: #8a90a8;
 }
 
-h1::selection, h5::selection, p::selection, input::selection,
+h1::selection, h5::selection, p::selection, input::selection, span::selection,
 .grade-semester-table th::selection {
   color: var(--background-color);
   background: var(--primary-color);
+}
+
+h1 {
+  font-size: 36px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
 }
 
 h1, h5 {
@@ -36,26 +45,71 @@ button {
 #main {
   display: flex;
   flex-direction: column;
-  padding: 60px 90px 60px 90px;
+  padding: 60px 300px 60px 300px;
 }
 
 #grade-header {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-#grade-wrapper {
+#grade-intro-text {
+  width: 1000px;
+  line-height: 26px;
+}
+
+.side-by-side {
   display: flex;
   flex-direction: row;
 }
 
-.grade-container {
+.delete-button {
+  background-color: transparent;
+  background-image: url("./delete_icon.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50px;
+  width: 24px;
+  height: 24px;
+  transition: background-color 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: #f0f0f0;
+}
+
+.span-label {
+  color: var(--label-color);
+  font-size: 14px;
+  display: block;
+}
+
+.span-value {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+#grade-container {
+  margin-right: 60px;
+  height: 100%;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+#grade-results {
+  width: 260px;
+  height: 500px;
+}
+
+#grade-container, #grade-results {
   background: white;
   border-radius: 5px;
   filter: drop-shadow(0px 4px 24px rgba(119, 119, 119, 0.15));
-  padding: 30px 40px 30px 40px;
+  padding: 35px 100px 35px 40px;
 }
 
-.grade-semester-add-button {
+#grade-semester-add-button {
   background: var(--primary-color);
   border-radius: 5px;
   color: white;
@@ -65,13 +119,15 @@ button {
   padding: 10px 0 10px 0;
   margin-top: 40px;
   width: 220px;
-  transition: 0.2s background ease;
+  transition: background 0.2s ease;
 }
 
-.grade-semester-add-button:hover {
-  /* TODO - PLACEHOLDER: Replace these two values */
-  background: white;
-  color: var(--primary-color);
+#grade-semester-add-button:hover {
+  background: var(--primary-color-b1);
+}
+
+.grade-table-wrapper {
+  margin-bottom: 40px;
 }
 
 .grade-semester-title::after {
@@ -105,11 +161,15 @@ button {
 }
 
 .wide {
-  width: 70%;
+  width: 50%;
 }
 
 .narrow {
-  width: 15%;
+  width: 18%;
+}
+
+.narrow-h2 {
+  width: 14%;
 }
 
 .grade-semester-table tr.content:not(:last-child) {
@@ -124,7 +184,7 @@ button {
   text-align: right;
   padding: 5px 0 5px 0;
   margin: 0;
-  width: 100%;
+  width: 95%;
 }
 
 .grade-semester-table td > input:hover, .grade-semester-table td > input:focus {
@@ -140,11 +200,13 @@ button {
   width: 30%;
 }
 
-.grade-semester-table td:not(:first-child) {
+/* .grade-semester-table td:not(:first-child) { */
+.grade-semester-table td.right {
   padding-left: 10px;
 }
 
-.grade-semester-table td:not(:last-child) {
+/* .grade-semester-table td:not(:last-child) { */
+.grade-semester-table td.left {
   padding-right: 10px;
 }
 
@@ -158,14 +220,15 @@ button {
   text-align: right;
 }
 
+.grade-semester-table td.center {
+  padding-left: 15px;
+  text-align: center;
+}
+
 .grade-semester-table-button {
   background: transparent;
   color: var(--primary-color);
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 12px;
   padding: 0;
-}
-
-.grade-semester-table-button:hover {
-  text-decoration: underline;
 }

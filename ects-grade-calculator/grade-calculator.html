@@ -6,50 +6,68 @@
     <meta name="theme-color" content="#000000" />
     <link rel="icon" type="image/png" href="./favicon.png"/>
 	  <link rel="stylesheet" type="text/css" href="./grade-calculator.css">
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:500,600"/> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:700"/>
     <title>ECTS Grade Calculator</title>
   </head>
   <body>
     <div id="main">
       <div id="grade-header">
         <h1>ECTS Grade Calculator</h1>
-        <p>Want to see how well you've done in college? Enter your grades into
-        the calculator and it'll give you your grade per semester as well as your
-        final grade. Enjoy!</p>
+        <p id="grade-intro-text">Want to see how well you've done so far in
+        college? Enter your grades into the calculator and we'll give you your
+        grade per semester as well as your final grade. Enjoy!</p>
       </div>
-      <div id="grade-wrapper">
-        <div class="grade-container">
-          <h5 class="grade-semester-title">Semester 1</h5>
-          <div>
-            <table class="grade-semester-table">
-              <colgroup>
-                <col class="wide" />
-                <col class="narrow" />
-                <col class="narrow" />
-              </colgroup>
-              <tr>
-                <th class="left">Course</th>
-                <th class="right">ECTS</th>
-                <th class="right">Grade</th>
-              </tr>
-              <tr class="content">
-                <td class="left"><input type="text" placeholder="Course name"></td>
-                <td class="right"><input type="text" placeholder="ECTS"></td>
-                <td class="right"><input type="text" placeholder="Grade"></td>
-              </tr>
-              <tr class="content">
-                <td class="left"><input type="text" placeholder="Course name"></td>
-                <td class="right"><input type="text" placeholder="ECTS"></td>
-                <td class="right"><input type="text" placeholder="Grade"></td>
-              </tr>
-            </table>
-            <button class="grade-semester-table-button">Add new course</button>
+      <div class="side-by-side">
+        <div id="grade-container">
+          <div id="grade-table-container">
+            <!-- <div class="grade-table-wrapper">
+              <h5 class="grade-semester-title">Semester 1</h5>
+              <table class="grade-semester-table">
+                <colgroup>
+                  <col class="wide" />
+                  <col class="narrow" />
+                  <col class="narrow" />
+                  <col class="narrow" />
+                </colgroup>
+                <thead>
+                  <th class="left">Course</th>
+                  <th class="right">ECTS</th>
+                  <th class="right">Grade</th>
+                  <th class="right"></th>
+                </thead>
+                <tr class="content">
+                  <td class="left"><input type="text" placeholder="Course name"></td>
+                  <td class="right"><input type="text" placeholder="ECTS"></td>
+                  <td class="right"><input type="text" placeholder="Grade"></td>
+                  <td class="center"><button id="test" class="delete-button"></button></td>
+                </tr>
+                <tr class="content">
+                  <td class="left"><input type="text" placeholder="Course name"></td>
+                  <td class="right"><input type="text" placeholder="ECTS"></td>
+                  <td class="right"><input type="text" placeholder="Grade"></td>
+                  <td class="center"><button class="delete-button"></button></td>
+                </tr>
+              </table>
+              <button class="grade-semester-table-button">Add new course</button>
+            </div> -->
           </div>
-          <button class="grade-semester-add-button">Add new semester</button>
+          <button id="grade-semester-add-button">Add new semester</button>
         </div>
-        <!-- <div class="grade-container">
-        </div> -->
+        <div id="grade-results">
+          <h5 class="grade-semester-title">Results</h5>
+          <div class="side-by-side">
+            <div style="margin-right: 50px">
+              <span class="span-label">Total ECTS</span>
+              <span class="span-value">210</span>
+            </div>
+            <div>
+              <span class="span-label">Total points</span>
+              <span class="span-value">300</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <script src="./grade-calculator.js"></script>
   </body>
 </html>
