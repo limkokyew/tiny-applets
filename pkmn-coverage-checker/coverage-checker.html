@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700">
+	<link rel="stylesheet" type="text/css" href="./coverage-checker.css">
+    <title>Coverage checker</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Welcome to the type coverage applet!</h1>
+      <p id="main-intro-text">When building a team, you may be wondering how well your team's
+      coverage would fare against the many Pokémon types. Drag and drop types
+      from the upper box into the left box to automatically update the right box
+      based on your coverage.</p>
+      <div class="side-by-side" id="type-selection-box">
+        <div class="type" id="type-normal">Normal</div>
+        <div class="type" id="type-fighting">Fighting</div>
+        <div class="type" id="type-flying">Flying</div>
+        <div class="type" id="type-grass">Grass</div>
+        <div class="type" id="type-fire">Fire</div>
+        <div class="type" id="type-water">Water</div>
+        <div class="type" id="type-electric">Electric</div>
+        <div class="type" id="type-rock">Rock</div>
+        <div class="type" id="type-ground">Ground</div>
+        <div class="type" id="type-psychic">Psychic</div>
+        <div class="type" id="type-ice">Ice</div>
+        <div class="type" id="type-bug">Bug</div>
+        <div class="type" id="type-ghost">Ghost</div>
+        <div class="type" id="type-poison">Poison</div>
+        <div class="type" id="type-dragon">Dragon</div>
+        <div class="type" id="type-dark">Dark</div>
+        <div class="type" id="type-steel">Steel</div>
+        <div class="type" id="type-fairy">Fairy</div>
+      </div>
+      <div class="side-by-side">
+        <div id="type-selected">
+          <div id="type-selected-container">
+          </div>
+        </div>
+        <div id="type-view">
+        </div>
+      </div>
+	</div>
+    
+    <script src="./coverage-checker.js"></script>
+  </body>
+</html>

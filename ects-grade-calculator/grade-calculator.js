@@ -105,7 +105,7 @@ function calculateGrade() {
   
   for (let i = 0; i < ectsElements.length; i++) {
     const ects = parseInt(ectsElements[i].value, 10);
-    const grade = parseInt(gradeElements[i].value, 10);
+    const grade = parseFloat(gradeElements[i].value);
     
     if (!(isNaN(ects) || isNaN(grade))) {
       totalEcts += ects;
