@@ -1,7 +1,8 @@
 # Tiny applets
-A personal collection of small applets and command line tools that do not warrant
-their own repository. I've implemented these primarily with Python and JavaScript,
-but I made use of other programming languages and / or technologies as well.
+A personal collection of small applets and command line tools that do not
+warrant their own repository. I implemented these primarily with Python and
+JavaScript, but I made use of other programming languages and / or technologies
+as well. Refer to the ``README`` of each individual applet for more information.
 
 ## List of applets
 
