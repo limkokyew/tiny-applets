@@ -53,16 +53,43 @@
           </div>
           <button id="grade-semester-add-button">Add new semester</button>
         </div>
-        <div id="grade-results">
+        <div id="grade-results" class="vertical">
           <h5 class="grade-semester-title">Results</h5>
           <div class="side-by-side">
             <div style="margin-right: 50px">
-              <span class="span-label">Total ECTS</span>
-              <span class="span-value">210</span>
+              <span class="span-label line-break">Total ECTS</span>
+              <span class="span-value span-value-large">210</span>
             </div>
             <div>
-              <span class="span-label">Total points</span>
-              <span class="span-value">300</span>
+              <span class="span-label line-break">Total points</span>
+              <span class="span-value span-value-large">300</span>
+            </div>
+          </div>
+          <button id="grade-results-button">Calculate</button>
+          <div id="grade-results-table-container">
+            <table id="grade-results-table">
+              <tr>
+                <td class="left span-label">Semester 1</td>
+                <td class="right span-value">1.0</td>
+              </tr>
+              <tr>
+                <td class="left span-label">Semester 2</td>
+                <td class="right span-value">1.6</td>
+              </tr>
+            </table>
+            <div id="grade-result-circle">
+              <svg height="140" width="140">
+                <circle
+                  id="grade-result-circle-svg"
+                  stroke=var(--primary-color)
+                  stroke-width="10"
+                  fill="transparent"
+                  r="50"
+                  cx="70"
+                  cy="70"
+                />
+              </svg>
+              <span id="grade-overall-result" class="span-value span-value-large">1.7</span>
             </div>
           </div>
         </div>

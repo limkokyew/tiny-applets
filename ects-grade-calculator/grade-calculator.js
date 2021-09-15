@@ -3,6 +3,12 @@ const addSemesterButton = document.getElementById("grade-semester-add-button");
 const tableHeaderLabels = ["Course", "ECTS", "Grade", ""];
 const tableAlignments= ["left", "right", "right", "center"];
 const tableInputPlaceholders = ["Course name", "ECTS", "Grade", ""];
+const tableClassIdentifiers = ["course", "ects", "grade"];
+const gradeResult = document.getElementById("grade-overall-result");
+const resultButton = document.getElementById("grade-results-button");
+const resultCircle = document.getElementById("grade-result-circle-svg");
+const resultCircleFull = 100 * (2 / 3);
+let resultCircleCircumference;
 
 function removeSemesterTableRow(buttonElement) {
   console.log(buttonElement);
@@ -21,6 +27,7 @@ function addSemesterTableRow(table) {
       childElement = document.createElement("input");
       childElement.type = "text";
       childElement.placeholder = tableInputPlaceholders[i];
+      childElement.classList.add(tableClassIdentifiers[i]);
     } else {
       childElement = document.createElement("button");
       childElement.classList.add("delete-button");
@@ -77,7 +84,42 @@ function removeSemesterTable(index) {
   console.log("stub");
 }
 
-addSemesterButton.onclick = () => createSemesterTable(tableContainer);
+function setupProgressCircle() {
+  const radius = resultCircle.r.baseVal.value;
+  resultCircleCircumference = radius * 2 * Math.PI;
+  
+  resultCircle.style.strokeDashoffset = `${resultCircleCircumference}`;
+  resultCircle.style.strokeDasharray = `${resultCircleCircumference} ${resultCircleCircumference}`;
+}
 
-// Create initial semester
+function setProgress(percent) {
+  const offset = resultCircleCircumference - percent / 100 * resultCircleCircumference;
+  resultCircle.style.transition = "0.2s stroke-dashoffset";
+  resultCircle.style.strokeDashoffset = offset;
+}
+
+function calculateGrade() {
+  let ectsElements = document.getElementsByClassName("ects");
+  let gradeElements = document.getElementsByClassName("grade");
+  let totalEcts = 0, totalPoints = 0;
+  
+  for (let i = 0; i < ectsElements.length; i++) {
+    const ects = parseInt(ectsElements[i].value, 10);
+    const grade = parseInt(gradeElements[i].value, 10);
+    
+    if (!(isNaN(ects) || isNaN(grade))) {
+      totalEcts += ects;
+      totalPoints += ects * grade;
+    }
+  }
+  
+  const result = totalPoints / totalEcts;
+  setProgress((100 - (100 / 3) * (result - 1)) * 0.01 * resultCircleFull);
+  gradeResult.innerHTML = +result.toFixed(2);
+}
+
+// Setup everything
+addSemesterButton.onclick = () => createSemesterTable(tableContainer);
+resultButton.onclick = () => calculateGrade();
 createSemesterTable(tableContainer);
+setupProgressCircle();
