@@ -24,8 +24,6 @@ const isInDropRect = (x, y) => {
 
 let xOffset = 0;
 let yOffset = 0;
-window.onload = addListeners;
-
 
 // -----
 // Main functions
@@ -46,7 +44,9 @@ function mouseUp(e) {
     dropArea.classList.remove(dropAreaHighlightClassName);
     let target = divs[0];
     target.classList.remove(draggedClassname, draggedCSSClassName);
-    target.style = "";
+    target.style.position = "";
+    target.style.top = "";
+    target.style.left = "";
     
     const inTypeRect = isInTypeRect(e.clientX, e.clientY);
     const inDropRect = isInDropRect(e.clientX, e.clientY);
@@ -83,3 +83,13 @@ function divMove(e) {
     dropArea.classList.remove(dropAreaHighlightClassName);
   }
 }
+
+function setTypeOrder() {
+  let types = document.getElementsByClassName("type");
+  for (let i = 0; i < types.length; i++) {
+    types[i].style.order = i;
+  }
+}
+
+window.onload = addListeners;
+setTypeOrder();

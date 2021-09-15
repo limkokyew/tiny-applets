@@ -2,8 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="./favicon.png"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700">
-	<link rel="stylesheet" type="text/css" href="./coverage-checker.css">
+	  <link rel="stylesheet" type="text/css" href="./coverage-checker.css">
     <title>Coverage checker</title>
   </head>
   <body>
@@ -35,14 +36,21 @@
       </div>
       <div class="side-by-side">
         <div id="type-selected">
-          <div id="type-selected-container">
+          <div class="side-by-side" id="type-selected-container">
           </div>
         </div>
         <div id="type-view">
         </div>
       </div>
-	</div>
-    
+      
+	  </div>
+    <svg id="deco-svg-right" width="886" height="1080" viewBox="0 0 886 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path opacity="0.75" d="M612.484 -40.0671C848.973 102.508 904.202 444.473 735.841 723.734C567.48 1002.99 239.285 1113.8 2.79565 971.226" stroke="#4A67DB" stroke-width="8"/>
+      <path d="M594.823 -65C846.339 48.9928 939.015 386.795 801.821 689.503C664.628 992.21 349.516 1145.19 98 1031.2" stroke="#4A67DB" stroke-width="15"/>
+    </svg>
+    <svg id="deco-svg-bottom" width="1920" height="185" viewBox="0 0 1920 185" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M876.285 53.6535C402.869 -21.7348 199.794 25.4331 0 25.4331V185H1920V0C1664.4 27.2913 1325.5 125.188 876.285 53.6535Z" fill="#4A67DB"/>
+    </svg>
     <script src="./coverage-checker.js"></script>
   </body>
 </html>
