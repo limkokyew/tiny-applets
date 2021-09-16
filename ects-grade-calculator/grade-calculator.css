@@ -277,6 +277,7 @@ th.center, td.center, td.center> input{
 }
 
 #grade-result-circle-svg {
+  stroke-linecap: round;
   transform: rotate(150deg);
   transform-origin: 50% 50%;
 }
