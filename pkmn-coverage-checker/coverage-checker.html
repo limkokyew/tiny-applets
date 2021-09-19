@@ -15,24 +15,24 @@
       from the upper box into the left box to automatically update the right box
       based on your coverage.</p>
       <div class="side-by-side" id="type-selection-box">
-        <div class="type" id="type-normal">Normal</div>
-        <div class="type" id="type-fighting">Fighting</div>
-        <div class="type" id="type-flying">Flying</div>
-        <div class="type" id="type-grass">Grass</div>
-        <div class="type" id="type-fire">Fire</div>
-        <div class="type" id="type-water">Water</div>
-        <div class="type" id="type-electric">Electric</div>
-        <div class="type" id="type-rock">Rock</div>
-        <div class="type" id="type-ground">Ground</div>
-        <div class="type" id="type-psychic">Psychic</div>
-        <div class="type" id="type-ice">Ice</div>
-        <div class="type" id="type-bug">Bug</div>
-        <div class="type" id="type-ghost">Ghost</div>
-        <div class="type" id="type-poison">Poison</div>
-        <div class="type" id="type-dragon">Dragon</div>
-        <div class="type" id="type-dark">Dark</div>
-        <div class="type" id="type-steel">Steel</div>
-        <div class="type" id="type-fairy">Fairy</div>
+        <div class="type type-draggable type-normal">Normal</div>
+        <div class="type type-draggable type-fighting">Fighting</div>
+        <div class="type type-draggable type-flying">Flying</div>
+        <div class="type type-draggable type-grass">Grass</div>
+        <div class="type type-draggable type-fire">Fire</div>
+        <div class="type type-draggable type-water">Water</div>
+        <div class="type type-draggable type-electric">Electric</div>
+        <div class="type type-draggable type-rock">Rock</div>
+        <div class="type type-draggable type-ground">Ground</div>
+        <div class="type type-draggable type-psychic">Psychic</div>
+        <div class="type type-draggable type-ice">Ice</div>
+        <div class="type type-draggable type-bug">Bug</div>
+        <div class="type type-draggable type-ghost">Ghost</div>
+        <div class="type type-draggable type-poison">Poison</div>
+        <div class="type type-draggable type-dragon">Dragon</div>
+        <div class="type type-draggable type-dark">Dark</div>
+        <div class="type type-draggable type-steel">Steel</div>
+        <div class="type type-draggable type-fairy">Fairy</div>
       </div>
       <div class="side-by-side">
         <div id="type-selected">
@@ -40,9 +40,55 @@
           </div>
         </div>
         <div id="type-view">
+          <div id="type-view-wrapper" class="side-by-side">
+            <div class="vertical-flex flex-align-center type-view-container">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle class="svg-circle" cx="40" cy="40" r="38.5" stroke="#ce1444" stroke-width="3"/>
+                <path d="M50.2 43.1C51.5807 43.1 52.7 41.9807 52.7 40.6V39.4C52.7 38.0193 51.5807 36.9 50.2 36.9H29.8C28.4193 36.9 27.3 38.0193 27.3 39.4V40.6C27.3 41.9807 28.4193 43.1 29.8 43.1H50.2Z" stroke="#ce1444" stroke-width="3"/>
+              </svg>
+              <span class="type-view-label" style="color: #ce1444">Not effective</span>
+              <div class="side-by-side type-view-results-wrapper">
+              </div>
+            </div>
+            <div class="vertical-flex flex-align-center type-view-container">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle class="svg-circle" cx="40" cy="40" r="38.5" stroke="#4a67db" stroke-width="3"/>
+                <circle cx="40" cy="40" r="6.5" stroke="#4a67db" stroke-width="3"/>
+              </svg>
+              <span class="type-view-label" style="color: #4a67db">Effective</span>
+              <div class="side-by-side type-view-results-wrapper">
+                <div class="type type-normal">Normal</div>
+                <div class="type type-fighting">Fighting</div>
+                <div class="type type-flying">Flying</div>
+                <div class="type type-grass">Grass</div>
+                <div class="type type-fire">Fire</div>
+                <div class="type type-water">Water</div>
+                <div class="type type-electric">Electric</div>
+                <div class="type type-rock">Rock</div>
+                <div class="type type-ground">Ground</div>
+                <div class="type type-psychic">Psychic</div>
+                <div class="type type-ice">Ice</div>
+                <div class="type type-bug">Bug</div>
+                <div class="type type-ghost">Ghost</div>
+                <div class="type type-poison">Poison</div>
+                <div class="type type-dragon">Dragon</div>
+                <div class="type type-dark">Dark</div>
+                <div class="type type-steel">Steel</div>
+                <div class="type type-fairy">Fairy</div>
+              </div>
+            </div>
+            <div class="vertical-flex flex-align-center type-view-container">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle class="svg-circle" cx="40" cy="40" r="38.5" stroke="#3BC449" stroke-width="3"/>
+                <path d="M50.2 43.1C51.5807 43.1 52.7 41.9807 52.7 40.6V39.4C52.7 38.0193 51.5807 36.9 50.2 36.9H43.1V29.8C43.1 28.4193 41.9807 27.3 40.6 27.3H39.4C38.0193 27.3 36.9 28.4193 36.9 29.8V36.9H29.8C28.4193 36.9 27.3 38.0193 27.3 39.4V40.6C27.3 41.9807 28.4193 43.1 29.8 43.1H36.9V50.2C36.9 51.5807 38.0193 52.7 39.4 52.7H40.6C41.9807 52.7 43.1 51.5807 43.1 50.2V43.1H50.2Z" stroke="#3BC449" stroke-width="3"/>
+              </svg>
+              <span class="type-view-label" style="color: #3BC449">Super effective</span>
+              <div class="side-by-side type-view-results-wrapper">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      
 	  </div>
     <svg id="deco-svg-right" width="886" height="1080" viewBox="0 0 886 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path opacity="0.75" d="M612.484 -40.0671C848.973 102.508 904.202 444.473 735.841 723.734C567.48 1002.99 239.285 1113.8 2.79565 971.226" stroke="#4A67DB" stroke-width="8"/>
