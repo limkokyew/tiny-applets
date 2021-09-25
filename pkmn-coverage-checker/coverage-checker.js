@@ -1,84 +1,87 @@
-// TODO: Can this be implemented any better?
-// Ideally, this would be on another file, but because of CORS, this
-// workaround is needed
-const typeChart = {
-  "Normal": {
-    0.5: ["Ghost", "Rock", "Steel"],
-    2: []
-  },
-  "Fighting": {
-    0.5: ["Ghost", "Flying", "Poison", "Bug", "Psychic", "Fairy"],
-    2: ["Normal", "Rock", "Steel", "Ice", "Dark"]
-  },
-  "Flying": {
-    0.5: ["Rock", "Steel", "Electric"],
-    2: ["Fighting", "Bug", "Grass"]
-  },
-  "Poison": {
-    0.5: ["Steel", "Poison", "Ground", "Rock", "Ghost"],
-    2: ["Grass", "Fairy"]
-  },
-  "Ground": {
-    0.5: ["Flying", "Bug", "Grass"],
-    2: ["Poison", "Rock", "Steel", "Fire", "Electric"]
-  },
-  "Rock": {
-    0.5: ["Fighting", "Ground", "Steel"],
-    2: ["Flying", "Bug", "Fire", "Ice"]
-  },
-  "Bug": {
-    0.5: ["Fighting", "Flying", "Poison", "Ghost", "Steel", "Fire", "Fairy"],
-    2: ["Grass", "Psychic", "Dark"]
-  },
-  "Ghost": {
-    0.5: ["Normal", "Dark"],
-    2: ["Psychic", "Ghost"]
-  },
-  "Steel": {
-    0.5: ["Steel", "Fire", "Water", "Electric"],
-    2: ["Rock", "Ice", "Fairy"]
-  },
-  "Fire": {
-    0.5: ["Rock", "Fire", "Water", "Dragon"],
-    2: ["Bug", "Steel", "Grass", "Ice"]
-  },
-  "Water": {
-    0.5: ["Water", "Grass", "Dragon"],
-    2: ["Ground", "Rock", "Fire"]
-  },
-  "Grass": {
-    0.5: ["Flying", "Poison", "Bug", "Steel", "Fire", "Grass", "Dragon"],
-    2: ["Ground", "Rock", "Water"]
-  },
-  "Electric": {
-    0.5: ["Ground", "Grass", "Electric", "Dragon"],
-    2: ["Flying", "Water"]
-  },
-  "Psychic": {
-    0.5: ["Dark", "Steel", "Psychic"],
-    2: ["Fighting", "Poison"]
-  },
-  "Ice": {
-    0.5: ["Steel", "Fire", "Water", "Ice"],
-    2: ["Flying", "Ground", "Grass", "Dragon"]
-  },
-  "Dragon": {
-    0.5: ["Fairy", "Steel"],
-    2: ["Dragon"]
-  },
-  "Dark": {
-    0.5: ["Fighting", "Dark", "Fairy"],
-    2: ["Ghost", "Psychic"]
-  },
-  "Fairy": {
-    0.5: ["Poison", "Fire", "Steel"],
-    2: ["Fighting", "Dragon", "Dark"]
-  }
-}
-
 // -----
 // Globals and such
 // -----
+
+// TODO: Can this be implemented any better?
+// Type chart from a defending perspective
+const typeChart = {
+  "Normal": {
+    "Ghost": 0.5,
+    "Fighting": 2,
+  },
+  "Fighting": {
+    "Rock": 0.5, "Bug": 0.5, "Dark": 0.5,
+    "Flying": 2, "Psychic": 2, "Fairy": 2,
+  },
+  "Flying": {
+    "Fighting": 0.5, "Ground": 0.5, "Bug": 0.5, "Grass": 0.5,
+    "Rock": 2, "Electric": 2, "Ice": 2,
+  },
+  "Poison": {
+    "Fighting": 0.5, "Poison": 0.5, "Bug": 0.5, "Grass": 0.5, "Fairy": 0.5,
+    "Ground": 2, "Psychic": 2,
+  },
+  "Ground": {
+    "Poison": 0.5, "Rock": 0.5, "Electric": 0.5,
+    "Water": 2, "Grass": 2, "Ice": 2,
+  },
+  "Rock": {
+    "Normal": 0.5, "Flying": 0.5, "Poison": 0.5, "Fire": 0.5,
+    "Fighting": 2, "Ground": 2, "Steel": 2, "Water": 2, "Grass": 2,
+  },
+  "Bug": {
+    "Fighting": 0.5, "Ground": 0.5, "Grass": 0.5,
+    "Flying": 2, "Rock": 2, "Fire": 2,
+  },
+  "Ghost": {
+    "Normal": 0.5, "Fighting": 0.5, "Poison": 0.5, "Bug": 0.5,
+    "Ghost": 2, "Dark": 2,
+  },
+  "Steel": {
+    "Normal": 0.5, "Flying": 0.5, "Poison": 0.5, "Rock": 0.5, "Bug": 0.5,
+    "Steel": 0.5, "Grass": 0.5, "Psychic": 0.5, "Ice": 0.5, "Dragon": 0.5,
+    "Fairy": 0.5,
+    "Fighting": 2, "Ground": 2, "Fire": 2,
+  },
+  "Fire": {
+    "Bug": 0.5, "Steel": 0.5, "Fire": 0.5, "Grass": 0.5, "Ice": 0.5,
+    "Fairy": 0.5,
+    "Ground": 2, "Rock": 2, "Water": 2,
+  },
+  "Water": {
+    "Steel": 0.5, "Fire": 0.5, "Water": 0.5, "Ice": 0.5,
+    "Grass": 2, "Electric": 2,
+  },
+  "Grass": {
+    "Ground": 0.5, "Water": 0.5, "Grass": 0.5, "Electric": 0.5,
+    "Flying": 2, "Poison": 2, "Bug": 2, "Fire": 2, "Ice": 2,
+  },
+  "Electric": {
+    "Flying": 0.5, "Steel": 0.5, "Electric": 0.5,
+    "Ground": 2,
+  },
+  "Psychic": {
+    "Fighting": 0.5, "Psychic": 0.5,
+    "Bug": 2, "Ghost": 2, "Dark": 2,
+  },
+  "Ice": {
+    "Ice": 0.5,
+    "Fighting": 2, "Rock": 2, "Steel": 2, "Fire": 2,
+  },
+  "Dragon": {
+    "Fire": 0.5, "Water": 0.5, "Grass": 0.5, "Electric": 0.5,
+    "Ice": 2, "Dragon": 2, "Fairy": 2,
+  },
+  "Dark": {
+    "Ghost": 0.5, "Psychic": 0.5, "Dark": 0.5,
+    "Fighting": 2, "Bug": 2, "Fairy": 2,
+  },
+  "Fairy": {
+    "Fighting": 0.5, "Bug": 0.5, "Dragon": 0.5, "Dark": 0.5,
+    "Poison": 2, "Steel": 2,
+  }
+}
+
 const typeClassname = "type-draggable";
 const typeArea = document.getElementById("type-selection-box");
 const typeRect = typeArea.getBoundingClientRect();
@@ -90,6 +93,13 @@ const dropRect = dropArea.getBoundingClientRect();
 
 const draggedClassname = "dragged";
 const draggedCSSClassName = "type-dragged";
+
+const resultContainerMap = {
+  0: document.getElementById("results-effective"),    // Placeholder
+  0.5: document.getElementById("results-not-effective"),
+  1: document.getElementById("results-effective"),
+  2: document.getElementById("results-super-effective")
+};
 
 const isInTypeRect = (x, y) => {
   return (x >= typeRect.left && x <= typeRect.right
@@ -107,7 +117,46 @@ let yOffset = 0;
 // Main functions
 // -----
 
-function addListeners(){
+function updateResults() {
+  const selectedTypes = dropContainer.children;
+  const typeMatchups = Object.keys(typeChart).reduce((prev, curr) => (prev[curr] = 0, prev), {});
+  const defendingTypes = Array.from(document.getElementsByClassName("type-result"));
+  
+  // Loop through all types and check how well the user's selected types
+  // stack up
+  for (const defendingType of defendingTypes) {
+    const type = defendingType.attributes.poketype.value;
+    let multiplier = 0;
+    console.log(type);
+    
+    for (const selectedType of selectedTypes) {
+      const selectedTypeName = selectedType.attributes.poketype.value;
+      let currentMultiplier = 0;
+      
+      // Get the multiplier from the type chart - if it does not
+      // exist, assume multiplier to be 1
+      if (typeChart[type].hasOwnProperty(selectedTypeName)) {
+        currentMultiplier = typeChart[type][selectedTypeName];
+      } else {
+        currentMultiplier = 1;
+      }
+      
+      // Replace old multiplier if the new one is greater
+      if (multiplier < currentMultiplier) {
+        multiplier = currentMultiplier;
+      }
+    }
+    
+    // Move to the appropriate div
+    defendingType.parentElement.removeChild(defendingType);
+    resultContainerMap[multiplier].appendChild(defendingType);
+    typeMatchups[type] = multiplier;
+  }
+  
+  // console.log(typeMatchups);
+}
+
+function addListeners() {
   let types = document.getElementsByClassName(typeClassname);
   for (let i = 0; i < types.length; i++) {
     types[i].addEventListener("mousedown", mouseDown, false);
@@ -136,6 +185,7 @@ function mouseUp(e) {
       dropContainer.removeChild(target);
       typeArea.appendChild(target);
     }
+    updateResults();
   }
 }
 

@@ -15,24 +15,24 @@
       from the upper box into the left box to automatically update the right box
       based on your coverage.</p>
       <div class="side-by-side" id="type-selection-box">
-        <div class="type type-draggable type-normal">Normal</div>
-        <div class="type type-draggable type-fighting">Fighting</div>
-        <div class="type type-draggable type-flying">Flying</div>
-        <div class="type type-draggable type-grass">Grass</div>
-        <div class="type type-draggable type-fire">Fire</div>
-        <div class="type type-draggable type-water">Water</div>
-        <div class="type type-draggable type-electric">Electric</div>
-        <div class="type type-draggable type-rock">Rock</div>
-        <div class="type type-draggable type-ground">Ground</div>
-        <div class="type type-draggable type-psychic">Psychic</div>
-        <div class="type type-draggable type-ice">Ice</div>
-        <div class="type type-draggable type-bug">Bug</div>
-        <div class="type type-draggable type-ghost">Ghost</div>
-        <div class="type type-draggable type-poison">Poison</div>
-        <div class="type type-draggable type-dragon">Dragon</div>
-        <div class="type type-draggable type-dark">Dark</div>
-        <div class="type type-draggable type-steel">Steel</div>
-        <div class="type type-draggable type-fairy">Fairy</div>
+        <div class="type type-draggable type-normal" poketype="Normal">Normal</div>
+        <div class="type type-draggable type-fighting" poketype="Fighting">Fighting</div>
+        <div class="type type-draggable type-flying" poketype="Flying">Flying</div>
+        <div class="type type-draggable type-grass" poketype="Grass">Grass</div>
+        <div class="type type-draggable type-fire" poketype="Fire">Fire</div>
+        <div class="type type-draggable type-water" poketype="Water">Water</div>
+        <div class="type type-draggable type-electric" poketype="Electric">Electric</div>
+        <div class="type type-draggable type-rock" poketype="Rock">Rock</div>
+        <div class="type type-draggable type-ground" poketype="Ground">Ground</div>
+        <div class="type type-draggable type-psychic" poketype="Psychic">Psychic</div>
+        <div class="type type-draggable type-ice" poketype="Ice">Ice</div>
+        <div class="type type-draggable type-bug" poketype="Bug">Bug</div>
+        <div class="type type-draggable type-ghost" poketype="Ghost">Ghost</div>
+        <div class="type type-draggable type-poison" poketype="Poison">Poison</div>
+        <div class="type type-draggable type-dragon" poketype="Dragon">Dragon</div>
+        <div class="type type-draggable type-dark" poketype="Dark">Dark</div>
+        <div class="type type-draggable type-steel" poketype="Steel">Steel</div>
+        <div class="type type-draggable type-fairy" poketype="Fairy">Fairy</div>
       </div>
       <div class="side-by-side">
         <div id="type-selected">
@@ -47,7 +47,7 @@
                 <path d="M50.2 43.1C51.5807 43.1 52.7 41.9807 52.7 40.6V39.4C52.7 38.0193 51.5807 36.9 50.2 36.9H29.8C28.4193 36.9 27.3 38.0193 27.3 39.4V40.6C27.3 41.9807 28.4193 43.1 29.8 43.1H50.2Z" stroke="#ce1444" stroke-width="3"/>
               </svg>
               <span class="type-view-label" style="color: #ce1444">Not effective</span>
-              <div class="side-by-side type-view-results-wrapper">
+              <div id="results-not-effective" class="side-by-side type-view-results-wrapper">
               </div>
             </div>
             <div class="vertical-flex flex-align-center type-view-container">
@@ -56,25 +56,25 @@
                 <circle cx="40" cy="40" r="6.5" stroke="#4a67db" stroke-width="3"/>
               </svg>
               <span class="type-view-label" style="color: #4a67db">Effective</span>
-              <div class="side-by-side type-view-results-wrapper">
-                <div class="type type-normal">Normal</div>
-                <div class="type type-fighting">Fighting</div>
-                <div class="type type-flying">Flying</div>
-                <div class="type type-grass">Grass</div>
-                <div class="type type-fire">Fire</div>
-                <div class="type type-water">Water</div>
-                <div class="type type-electric">Electric</div>
-                <div class="type type-rock">Rock</div>
-                <div class="type type-ground">Ground</div>
-                <div class="type type-psychic">Psychic</div>
-                <div class="type type-ice">Ice</div>
-                <div class="type type-bug">Bug</div>
-                <div class="type type-ghost">Ghost</div>
-                <div class="type type-poison">Poison</div>
-                <div class="type type-dragon">Dragon</div>
-                <div class="type type-dark">Dark</div>
-                <div class="type type-steel">Steel</div>
-                <div class="type type-fairy">Fairy</div>
+              <div id="results-effective" class="side-by-side type-view-results-wrapper">
+                <div class="type type-result type-normal" poketype="Normal">Normal</div>
+                <div class="type type-result type-fighting" poketype="Fighting">Fighting</div>
+                <div class="type type-result type-flying" poketype="Flying">Flying</div>
+                <div class="type type-result type-grass" poketype="Grass">Grass</div>
+                <div class="type type-result type-fire" poketype="Fire">Fire</div>
+                <div class="type type-result type-water" poketype="Water">Water</div>
+                <div class="type type-result type-electric" poketype="Electric">Electric</div>
+                <div class="type type-result type-rock" poketype="Rock">Rock</div>
+                <div class="type type-result type-ground" poketype="Ground">Ground</div>
+                <div class="type type-result type-psychic" poketype="Psychic">Psychic</div>
+                <div class="type type-result type-ice" poketype="Ice">Ice</div>
+                <div class="type type-result type-bug" poketype="Bug">Bug</div>
+                <div class="type type-result type-ghost" poketype="Ghost">Ghost</div>
+                <div class="type type-result type-poison" poketype="Poison">Poison</div>
+                <div class="type type-result type-dragon" poketype="Dragon">Dragon</div>
+                <div class="type type-result type-dark" poketype="Dark">Dark</div>
+                <div class="type type-result type-steel" poketype="Steel">Steel</div>
+                <div class="type type-result type-fairy" poketype="Fairy">Fairy</div>
               </div>
             </div>
             <div class="vertical-flex flex-align-center type-view-container">
@@ -83,7 +83,7 @@
                 <path d="M50.2 43.1C51.5807 43.1 52.7 41.9807 52.7 40.6V39.4C52.7 38.0193 51.5807 36.9 50.2 36.9H43.1V29.8C43.1 28.4193 41.9807 27.3 40.6 27.3H39.4C38.0193 27.3 36.9 28.4193 36.9 29.8V36.9H29.8C28.4193 36.9 27.3 38.0193 27.3 39.4V40.6C27.3 41.9807 28.4193 43.1 29.8 43.1H36.9V50.2C36.9 51.5807 38.0193 52.7 39.4 52.7H40.6C41.9807 52.7 43.1 51.5807 43.1 50.2V43.1H50.2Z" stroke="#3BC449" stroke-width="3"/>
               </svg>
               <span class="type-view-label" style="color: #3BC449">Super effective</span>
-              <div class="side-by-side type-view-results-wrapper">
+              <div id="results-super-effective" class="side-by-side type-view-results-wrapper">
               </div>
             </div>
           </div>
