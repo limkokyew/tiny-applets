@@ -43,6 +43,10 @@ button {
   cursor: pointer;
 }
 
+button:focus {
+  outline: 2px solid var(--primary-color);
+}
+
 #main {
   display: flex;
   flex-direction: column;
@@ -152,12 +156,30 @@ button {
   margin-bottom: 40px;
 }
 
-.grade-semester-title::after {
+.grade-semester-title-wrapper::after {
   display: block;
   border-top: 3px solid var(--primary-color);
   content: "";
   width: 30px;
   margin: 6px 0 20px 0;
+}
+
+.grade-semester-title {
+  border: 0;
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding-left: 0;
+}
+
+.grade-semester-title:hover, .grade-semester-title:focus,
+.grade-semester-table td > input:hover, .grade-semester-table td > input:focus {
+  color: var(--primary-color);
+}
+
+.grade-semester-title:focus, .grade-semester-table td > input:focus {
+  padding: 5px 8px 5px 8px;
+  outline: 2px solid var(--primary-color);
 }
 
 .grade-semester-table {
@@ -207,15 +229,6 @@ button {
   padding: 5px 0 5px 0;
   margin: 0;
   width: 95%;
-}
-
-.grade-semester-table td > input:hover, .grade-semester-table td > input:focus {
-  color: var(--primary-color);
-}
-
-.grade-semester-table td > input:focus {
-  padding: 5px 8px 5px 8px;
-  outline: 2px solid var(--primary-color);
 }
 
 .grade-semester-table td > input.narrow {
@@ -276,7 +289,7 @@ th.center, td.center, td.center> input{
   text-align: center;
 }
 
-#grade-result-circle-svg {
+#grade-result-circle-svg, #grade-result-circle-svg-grey {
   stroke-linecap: round;
   transform: rotate(150deg);
   transform-origin: 50% 50%;

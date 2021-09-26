@@ -12,8 +12,10 @@ const gradeResult = document.getElementById("grade-overall-result");
 const gradeResultTable = document.getElementById("grade-results-table");
 const resultButton = document.getElementById("grade-results-button");
 const resultCircle = document.getElementById("grade-result-circle-svg");
+const resultCircleGrey = document.getElementById("grade-result-circle-svg-grey");
 const resultCircleFull = 100 * (2 / 3);
 let resultCircleCircumference;
+let semesterCount = 1;
 
 /**
  * Adds a new semester to the results table.
@@ -22,11 +24,14 @@ let resultCircleCircumference;
  */
 function addSemesterResultsRow(semesterTitle) {
   let tr = gradeResultTable.insertRow();
+  
   let keyTd = tr.insertCell();
   keyTd.classList.add("left", "span-label");
   keyTd.innerHTML = semesterTitle;
   let valueTd = tr.insertCell();
   valueTd.classList.add("right", "span-value");
+  
+  return tr;
 }
 
 /**
@@ -42,9 +47,11 @@ function removeSemesterTableRow(buttonElement) {
 /**
  * Adds a new row to the specified semester table.
  *
- * @param {object} table  Table the new row should be appended to
+ * @param {number} semesterCount  Number of the semester this element should be
+ *                                associated with
+ * @param {object} table          Table object the new row should be appended to
  */
-function addSemesterTableRow(table) {
+function addSemesterTableRow(semesterCount, table) {
   let tr = table.insertRow();
   tr.classList.add("content");
   
@@ -64,10 +71,15 @@ function addSemesterTableRow(table) {
     } else {
       childElement = document.createElement("button");
       childElement.classList.add("delete-button");
+      childElement.tabIndex = -1;
       childElement.onclick = () => removeSemesterTableRow(childElement);
     }
+    childElement.setAttribute("semester-index", semesterCount);
+    
     td.appendChild(childElement);
   }
+  
+  return tr;
 }
 
 /**
@@ -81,17 +93,20 @@ function createSemesterTable(parentElement) {
       tableWrapper = document.createElement("div"),
       tableAddRowButton = document.createElement("button"),
       colGroup = document.createElement("colgroup"),
-      semesterHeader = document.createElement("h5");
-  const semesterTitle = "TODO: Change me!";
+      semesterHeaderWrapper = document.createElement("div"),
+      semesterHeader = document.createElement("input");
+  const semesterTitle = `Semester ${semesterCount}`;
+  const semesterNo = semesterCount;
   
   // Perform setup operations, such as adding CSS classes
   table.classList.add("grade-semester-table");
   tableAddRowButton.classList.add("grade-semester-table-button");
   tableAddRowButton.innerHTML = "Add new course";
-  tableAddRowButton.onclick = () => addSemesterTableRow(table);
+  tableAddRowButton.onclick = () => addSemesterTableRow(semesterNo, table);
   tableWrapper.classList.add("grade-table-wrapper");
+  semesterHeaderWrapper.classList.add("grade-semester-title-wrapper");
   semesterHeader.classList.add("grade-semester-title");
-  semesterHeader.innerHTML = semesterTitle;
+  semesterHeader.value = semesterTitle;
   
   // Create columns for colgroup first
   for (let i = 0; i < 4; i++) {
@@ -111,15 +126,21 @@ function createSemesterTable(parentElement) {
   }
   
   // Add new rows for the newly created semester
-  addSemesterTableRow(table);
-  addSemesterResultsRow(semesterTitle);
+  addSemesterTableRow(semesterNo, table);
+  let resultRow = addSemesterResultsRow(semesterTitle);
+  semesterHeader.addEventListener("change", (e) => {
+    resultRow.children[0].innerHTML = e.target.value;
+  });
   
   // Finally, append the child elements to the table and add
   // the table to the DOM
-  tableWrapper.appendChild(semesterHeader);
+  semesterHeaderWrapper.appendChild(semesterHeader);
+  tableWrapper.appendChild(semesterHeaderWrapper);
   tableWrapper.appendChild(table);
   tableWrapper.appendChild(tableAddRowButton);
   parentElement.appendChild(tableWrapper);
+  
+  semesterCount++;
 }
 
 /**
@@ -136,8 +157,11 @@ function removeSemesterTable(index) {
 function setupProgressCircle() {
   const radius = resultCircle.r.baseVal.value;
   resultCircleCircumference = radius * 2 * Math.PI;
+  
   resultCircle.style.strokeDashoffset = `${resultCircleCircumference}`;
   resultCircle.style.strokeDasharray = `${resultCircleCircumference} ${resultCircleCircumference}`;
+  resultCircleGrey.style.strokeDashoffset = `${resultCircleCircumference * (1 / 3)}`;
+  resultCircleGrey.style.strokeDasharray = `${resultCircleCircumference} ${resultCircleCircumference}`;
 }
 
 /**
@@ -156,8 +180,8 @@ function setProgress(percent) {
  * created. Sets the values of the result DOM elements accordingly.
  */
 function calculateGrade() {
-  let ectsElements = document.getElementsByClassName("ects");
-  let gradeElements = document.getElementsByClassName("grade");
+  const ectsElements = document.getElementsByClassName("ects");
+  const gradeElements = document.getElementsByClassName("grade");
   let totalEcts = 0, totalPoints = 0;
   
   // Loop through all courses and add ECTS as well as points to the total
@@ -173,11 +197,11 @@ function calculateGrade() {
   }
   
   // Update all result elements accordingly
-  const result = totalPoints / totalEcts;
+  const result = Math.min(4, totalPoints / totalEcts);
   setProgress((100 - (100 / 3) * (result - 1)) * 0.01 * resultCircleFull);
   ectsTotal.innerHTML = totalEcts;
   pointsTotal.innerHTML = totalPoints;
-  gradeResult.innerHTML = +result.toFixed(2);
+  gradeResult.innerHTML = isNaN(result) ? "N/A" : +result.toFixed(2);
 }
 
 // Setup everything else

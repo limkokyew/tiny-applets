@@ -54,7 +54,7 @@
           <button id="grade-semester-add-button">Add new semester</button>
         </div>
         <div id="grade-results" class="vertical">
-          <h5 class="grade-semester-title">Results</h5>
+          <h5 class="grade-semester-title-wrapper">Results</h5>
           <div class="side-by-side">
             <div style="margin-right: 50px">
               <span class="span-label line-break">Total ECTS</span>
@@ -79,6 +79,15 @@
             </table>
             <div id="grade-result-circle">
               <svg height="140" width="140">
+                <circle
+                  id="grade-result-circle-svg-grey"
+                  stroke=#f0f0ea
+                  stroke-width="10"
+                  fill="transparent"
+                  r="50"
+                  cx="70"
+                  cy="70"
+                />
                 <circle
                   id="grade-result-circle-svg"
                   stroke=var(--primary-color)
