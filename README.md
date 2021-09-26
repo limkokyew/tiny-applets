@@ -9,8 +9,8 @@ as well. Refer to the ``README`` of each individual applet for more information.
 ### 🎓 ECTS grade calculator
 **Technologies used**: HTML, CSS, JavaScript
 
-Want to see how well you've done in college? Enter your grades into the calculator
-and it'll give you your final grade.
+Want to see how well you've done in college? Enter your grades into the
+calculator and it'll give you your final grade.
 
 ### 📝 Study helper
 **Technologies used**: Python
@@ -24,3 +24,10 @@ notes.
 
 Check how your team's coverage fares against all Pokémon types. May be useful
 for teambuilding.
+
+### 🕔 Timer app
+**Technologies used**: Python (PyQt5)
+
+Where does the time go? Track how much time you spend on different activites,
+such as studying or relaxing, and if necessary, adjust your schedule
+accordingly!
