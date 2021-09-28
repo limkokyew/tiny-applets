@@ -6,22 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>450</width>
-    <height>700</height>
+    <width>420</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true"/>
-  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="timer_label">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>270</y>
+      <x>120</x>
+      <y>230</y>
       <width>180</width>
       <height>180</height>
      </rect>
@@ -40,17 +37,17 @@ border-radius: 90px;
 color: #272727;</string>
     </property>
     <property name="text">
-     <string>999:40:01</string>
+     <string>00:00:00</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="start_stop_button">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>590</y>
+      <x>70</x>
+      <y>510</y>
       <width>280</width>
       <height>38</height>
      </rect>
@@ -77,8 +74,8 @@ color: #272727;</string>
    <widget class="QComboBox" name="category_dropdown">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>90</y>
+      <x>100</x>
+      <y>120</y>
       <width>220</width>
       <height>38</height>
      </rect>
@@ -148,8 +145,8 @@ QComboBox QAbstractItemView::item:selected {
    <widget class="QWidget" name="formLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>470</y>
+      <x>120</x>
+      <y>420</y>
       <width>181</width>
       <height>31</height>
      </rect>
@@ -168,7 +165,7 @@ QComboBox QAbstractItemView::item:selected {
       <set>Qt::AlignCenter</set>
      </property>
      <item row="0" column="0">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="timer_key">
        <property name="minimumSize">
         <size>
          <width>12</width>
@@ -191,7 +188,7 @@ border-radius: 6px;</string>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="timer_value">
        <property name="sizePolicy">
         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -223,8 +220,8 @@ border-radius: 6px;</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>65</y>
+      <x>100</x>
+      <y>95</y>
       <width>101</width>
       <height>16</height>
      </rect>
