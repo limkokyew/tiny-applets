@@ -33,7 +33,7 @@ class TimerMainWindow(QtWidgets.QMainWindow):
         Writes the currently saved JSON values to the database file.
         """
         with open(USER_FILE_PATH, "w") as f:
-            f.write(json.dumps(self.db_json))
+            f.write(json.dumps(self.db_json, indent=2))
 
     def update_timer_label(self, value):
         """
