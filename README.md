@@ -31,3 +31,10 @@ for teambuilding.
 Where does the time go? Track how much time you spend on different activites,
 such as studying or relaxing, and if necessary, adjust your schedule
 accordingly!
+
+### 🐍 Snake game
+**Technologies used**: Python
+
+A classic game that probably everyone has played at least once. Control a snake
+and eat the surrounding fruit, but avoid going out of bounds or ... hitting
+yourself!
