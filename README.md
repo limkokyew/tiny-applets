@@ -8,6 +8,7 @@ information.
 ## List of applets
 
 ### 🎓 ECTS grade calculator
+![ects-grade-calculator](.github/ects-grade-calculator.png)
 **Languages used**: HTML, CSS, JavaScript
 
 **Libraries used**: None
@@ -16,6 +17,7 @@ Want to see how well you've done in college? Enter your grades into the
 calculator and it'll give you your final grade.
 
 ### 📝 Study helper
+![study-helper](.github/study-helper.png)
 **Languages used**: Python
 
 **Libraries used**: None
