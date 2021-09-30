@@ -35,7 +35,7 @@ class Paddle():
         return self.char_display
 
 class Ball():
-    def __init__(self, x, y, distance_per_step=0.4, angle=90):
+    def __init__(self, x, y, distance_per_step=1, angle=90):
         self.x = x
         self.y = y
         self.distance_per_step = distance_per_step
@@ -43,8 +43,10 @@ class Ball():
         self.char_display = "●"
     
     def get_next_step(self):
+        # Reduce vertical speed in order to keep horizontal and vertical speed
+        # somewhat consistent
         new_x = self.x + self.distance_per_step * cos(radians(self.angle))
-        new_y = self.y + self.distance_per_step * sin(radians(self.angle))
+        new_y = self.y + self.distance_per_step * 0.4 * sin(radians(self.angle))
         return new_x, new_y
     
     def move(self):
@@ -81,14 +83,17 @@ class BreakoutGame():
     
     def step(self):
         self.paddle.move()
+        
         next_x, next_y = self.ball.get_next_step()
         if ((next_x >= self.paddle.x and next_x <= self.paddle.x + self.paddle.width) and
            (next_y >= self.paddle.y and next_y <= self.paddle.y + 1)):
-           self.ball.angle = degrees(
-               atan2(self.ball.y - (self.paddle.y + 0.5), self.ball.x - (self.paddle.x + (self.paddle.width // 2)))
-               # atan2(self.ball.y, self.ball.x) - atan2(self.paddle.y + 0.5, self.paddle.x + (self.paddle.width // 2))
-           )
-           print(self.ball.angle)
+           # Calculate the angle between ball and paddle as if the center of the
+           # paddle is lower than it actually is - this ensures that resulting
+           # angles do not change too much even with tiny changes
+           self.ball.angle = degrees(atan2(
+               self.ball.y - (self.paddle.y + 5),
+               self.ball.x - (self.paddle.x + (self.paddle.width // 2))
+           ))
         self.ball.move()
     
     def print_to_screen(self, screen):

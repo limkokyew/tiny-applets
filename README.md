@@ -38,11 +38,12 @@ facilities or ranked online matches!
 
 **Libraries used**: ``pyqt5``
 
-Where does the time go? Track how much time you spend on different activites,
+Where did the time go? Track how much time you spend on different activites,
 such as studying or relaxing, and if necessary, adjust your schedule
 accordingly!
 
 ### 🐍 Snake game
+![snake-game](.github/snake-game.png)
 **Languages used**: Python
 
 **Libraries used**: ``asciimatics``, ``pynput``
@@ -52,7 +53,8 @@ and eat the surrounding fruit, but avoid going out of bounds or ... hitting
 yourself!
 
 ### ⬜ Breakout
-**Technologies used**: Python
+![breakout](.github/breakout.png)
+**Languages used**: Python
 
 **Libraries used**: ``asciimatics``, ``pynput``
 
