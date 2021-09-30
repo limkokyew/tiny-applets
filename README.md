@@ -48,7 +48,7 @@ accordingly!
 ![snake-game](.github/snake-game.png)
 **Languages used**: Python
 
-**Libraries used**: ``asciimatics``, ``pynput``
+**Libraries used**: ``asciimatics``
 
 A classic game that probably everyone has played at least once. Control a snake
 and eat the surrounding fruit, but avoid going out of bounds or ... hitting
