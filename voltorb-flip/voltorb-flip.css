@@ -1,0 +1,106 @@
+body {
+  background: var(--background-color);
+  color: var(--heading-color);
+  font-family: "IBM Plex Sans", sans-serif;
+  margin: 0;
+  
+  --primary-color: #3bc449;
+  --primary-color-b1: #52cb5e;
+  --secondary-color: #ef5d60;
+  --background-color: #e3e3e3;
+  --sidebar-background-color: #f5f5ff;
+  --border-color: #dadada;
+  --heading-color: #333333;
+  --paragraph-color: #444444;
+  --label-color: #777777;
+}
+
+h1 {
+  font-size: 36px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+  
+p {
+  font-family: "IBM Plex Sans", sans-serif;
+  color: var(--paragraph-color);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.hint {
+  height: 64px;
+  border-radius: 50px;
+  padding-left: 30px;
+}
+
+.hint-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 5px;
+  margin-right: 20px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.label {
+  display: block;
+}
+
+.label-key {
+  font-size: 14px;
+  color: var(--label-color);
+  margin-bottom: 6px;
+}
+
+.label-value {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+#main {
+  min-height: 100vh;
+}
+
+#board-container {
+  width: 75%;
+}
+
+#sidebar {
+  background: var(--sidebar-background-color);
+  line-height: 26px;
+  padding: 40px 50px 40px 50px;
+  width: 25%;
+}
+
+#hint-container {
+  row-gap: 10px;
+}
+
+#score-container {
+  margin-top: 50px;
+  padding-top: 20px;
+  row-gap: 20px;
+  border-top: 1px solid var(--border-color);
+}

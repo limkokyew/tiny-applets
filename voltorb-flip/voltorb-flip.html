@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <!-- <link rel="icon" type="image/png" href="./favicon.png"/> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600,700">
+	  <link rel="stylesheet" type="text/css" href="./voltorb-flip.css">
+    <title>ECTS Grade Calculator</title>
+  </head>
+  <body>
+    <div id="main" class="flex flex-row">
+      <div id="board-container">
+      </div>
+      <div id="sidebar">
+        <h1>Voltorb Flip</h1>
+        <p>The classic Game Corner game from non-Japanese versions of Pokémon
+        HeartGold / SoulSilver. Flip tiles to increase your score but avoid
+        flipping tiles where Voltorbs are hiding underneath - or your score
+        will disappear into thin air!
+        </p>
+        <p>
+        Each row and column shows the sum of multipliers you can obtain as well
+        as the number of voltorbs hiding in that row / column. Use this
+        information to determine which tiles to flip!
+        </p>
+        <div id="hint-container" class="flex flex-col">
+          <div style="background: #58B2614c" class="hint flex flex-row flex-align-center">
+            <span style="background: #58B261" class="hint-box flex flex-align-center flex-justify-center">1</span>
+            <p style="color: #58B261">Multiplies your current score with the amount specified.</p>
+          </div>
+          <div style="background: #B257574c" class="hint flex flex-row flex-align-center">
+          <span style="background: #B25757" class="hint-box flex flex-align-center flex-justify-center">1</span>
+            <p style="color: #B25757">Game Over! 0 points!</p>
+          </div>
+        </div>
+        <div id="score-container" class="flex flex-col">
+          <div>
+            <span class="label label-key">Current level</span>
+            <span class="label label-value">Lv. 8</span>
+          </div>
+          <div>
+            <span class="label label-key">Points collected in current game</span>
+            <span class="label label-value">150</span>
+          </div>
+          <div>
+            <span class="label label-key">Total points</span>
+            <span class="label label-value">300</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./voltorb-flip.js"></script>
+  </body>
+</html>
