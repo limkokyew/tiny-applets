@@ -79,12 +79,36 @@ p {
   color: var(--heading-color);
 }
 
+.tile {
+  background: linear-gradient(135deg, white 0%, white 50%, #2EDDDD 50%, #3F74F1 100%);
+  background-size: 300% 300%;
+  border-radius: 5px;
+  flex-basis: 240px;
+  height: 240px;
+  cursor: pointer;
+  
+  transition: all 0.35s cubic-bezier(.75,.25,.25,.75);
+  transition-property: background-position box-shadow;
+}
+
+.tile:hover {
+  background-position: -480px;
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.5);
+}
+
 #main {
   min-height: 100vh;
 }
 
 #board-container {
   width: 75%;
+}
+
+#tile-container {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 58%;
+  height: 85%;
 }
 
 #sidebar {
