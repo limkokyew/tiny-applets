@@ -1,0 +1,2 @@
+pyqt5
+win10toast

@@ -37,7 +37,7 @@ cd venv/Scripts
 activate
 ```
 
-On Linux, activate it using the following command instead:
+On UNIX systems, activate it using the following command instead:
 
 ```bash
 . venv/bin/activate
@@ -50,7 +50,7 @@ execute the following command:
 pip install -r requirements.txt
 ```
 
-You should now be able to run the applet using ``python`` as usual.
+You should now be able to run the applet as usual using ``python``.
 
 ## List of applets
 
@@ -80,6 +80,15 @@ facilities or ranked online matches!
 A classic from the Pokémon HeartGold / SoulSilver games. Flip tiles to score
 points, but avoid voltorbs - or the game will end!
 
+### ⚔ Fire Emblem Combat Simulator
+**Languages used**: Python
+
+**Libraries used**: None
+
+Even though RNG dictates the outcome of a typical Fire Emblem battle, it may
+still be interesting to simulate a given encounter dozens of times and see just
+how often the initiator would win.
+
 ### 📝 Study helper
 ![study-helper](.github/study-helper.png)
 **Languages used**: Python
@@ -90,6 +99,16 @@ Particularly useful for studying. Import a text document with your notes and
 the study helper will ask you questions based on what you've written in your
 notes.
 
+### 📄 File transfer app
+**Languages used**: Python
+
+**Libraries used**: ``pyqt5``
+
+If you have multiple devices, then you will probably have to transfer files
+between them occasionally. Instead of picking up the nearest USB stick or
+uploading the files to the cloud, you can use this app, which allows you to
+send and receive files from other, nearby devices.
+
 ### 🕔 Timer app
 **Languages used**: Python
 
@@ -98,6 +117,17 @@ notes.
 Where did the time go? Track how much time you spend on different activites,
 such as studying or relaxing, and if necessary, adjust your schedule
 accordingly!
+
+### 🍅 Pomodoro app
+**Languages used**: Python
+
+**Libraries used**: None
+
+In a similar vein to the previously shown timer app, this app allows you to set
+a timer as described in the
+[Pomodoro technique](https://en.wikipedia.org/wiki/Pomodoro_Technique). Once
+the timer expires, you will be reminded to take a break, with every fourth
+expiration resulting in a longer break. Take everything in moderation!
 
 ### 🐍 Snake game
 ![snake-game](.github/snake-game.png)
