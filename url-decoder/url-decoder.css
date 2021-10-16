@@ -1,0 +1,142 @@
+body {
+  background: var(--background-color);
+  color: var(--heading-color);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  
+  --primary-color: #1167EA;
+  --primary-color-b1: #4187F1;
+  --background-color: white;
+  --separator-color: #dadada;
+  --heading-color: black;
+  --paragraph-color: #333333;
+  --label-color: #777777;
+}
+
+h1::selection, p::selection, a::selection, strong::selection, input::selection,
+span::selection {
+  color: var(--background-color);
+  background: var(--primary-color);
+}
+
+h1 {
+  font-size: 48px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+p {
+  color: var(--paragraph-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.url-textarea {
+  display: block;
+  outline: 2px solid transparent;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: var(--paragraph-color);
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 16px 30px 16px 30px;
+  width: 100%;
+  height: 68px;
+  resize: none;
+}
+
+#main {
+  margin-top: 6%;
+}
+
+#description {
+  max-width: 70%;
+  line-height: 28px;
+}
+
+#url-input {
+  border: 1px solid var(--heading-color);
+  margin-top: 30px;
+  transition: all 0.2s ease;
+  transition-property: border, outline;
+}
+
+#url-input:hover, #url-input:focus {
+  border: 1px solid var(--primary-color);
+}
+
+#url-input:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+#decode-btn {
+  background: var(--primary-color);
+  border-radius: 10px;
+  color: var(--background-color);
+  font-size: 16px;
+  padding: 12px 40px 12px 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+  transition: all 0.2s ease;
+  transition-property: background, transform;
+}
+
+#decode-btn:hover {
+  background: #5493F2;
+}
+
+#decode-btn:active {
+  transform: scale(0.94);
+}
+
+#separator {
+  border: 0;
+  border-top: 1px solid #dadada;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+#url-output {
+  border: 1px solid transparent;
+  background: #e7e7e7;
+  margin-top: 12px;
+  padding-right: 90px;
+}
+
+#url-output-label {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  color: var(--label-color);
+}
+
+#copy-clipboard-btn {
+  background: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 30px;
+}

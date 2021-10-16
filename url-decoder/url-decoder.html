@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <!-- <link rel="icon" type="image/png" href="./favicon.png"/> -->
+	  <link rel="stylesheet" type="text/css" href="./url-decoder.css">
+    <title>URL decoder</title>
+  </head>
+  <body>
+    <div id="main" class="flex flex-justify-center">
+      <div>
+        <h1>URL decoder</h1>
+        <p id="description">Paste in any URL with
+        <a href="https://en.wikipedia.org/wiki/Percent-encoding">Percent-encoding</a>
+        into the box below and press <strong>Decode</strong> to obtain the
+        decoded result. You can view a table with all affected characters in the
+        link mentioned above.
+        </p>
+        <input id="url-input"
+                  class="url-textarea"
+                  type="text"
+                  placeholder="Enter URL here ...">
+        <button id="decode-btn">Decode</button>
+        <hr id="separator">
+        <div id="url-output-wrapper">
+          <span id="url-output-label">Decoded URL</span>
+          <div style="position: relative">
+            <input id="url-output"
+                   class="url-textarea"
+                   type="text"
+                   readonly>
+            <button id="copy-clipboard-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#333333">
+                <path d="M0 0h24v24H0V0z" fill="none"/>
+                <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./url-decoder.js"></script>
+  </body>
+</html>

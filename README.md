@@ -70,9 +70,9 @@ calculator and it'll give you your final grade.
 
 URLs are commonly encoded in
 [Percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding), which allows
-otherwise illegal characters to be used in URLs. An example would be ``+``,
-which is encoded as ``%2B``. With this URL decoder, you can enter in any URL
-with such encoded characters and have the app decode the URL for you.
+otherwise illegal characters to be used in URLs. With this URL decoder, you can
+enter in any URL with such encoded characters and have the app decode the URL
+for you.
 
 ### 🎇 Pokémon coverage checker
 **Languages used**: HTML, CSS, JavaScript
