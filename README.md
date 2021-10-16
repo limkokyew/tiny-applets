@@ -63,6 +63,17 @@ You should now be able to run the applet as usual using ``python``.
 Want to see how well you've done in college? Enter your grades into the
 calculator and it'll give you your final grade.
 
+### 🌐 URL decoder
+**Languages used**: HTML, CSS, JavaScript
+
+**Libraries used**: None
+
+URLs are commonly encoded in
+[Percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding), which allows
+otherwise illegal characters to be used in URLs. An example would be ``+``,
+which is encoded as ``%2B``. With this URL decoder, you can enter in any URL
+with such encoded characters and have the app decode the URL for you.
+
 ### 🎇 Pokémon coverage checker
 **Languages used**: HTML, CSS, JavaScript
 

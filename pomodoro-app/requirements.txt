@@ -1,2 +1,2 @@
-pyqt5
-win10toast
+PyQt5==5.15.4
+win10toast==0.9
