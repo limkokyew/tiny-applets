@@ -31,7 +31,7 @@ class PomodoroMainWindow(QtWidgets.QMainWindow):
         if not self.timer:
             # No timer is currently in use, create a new one
             self.set_consecutive_timers(self.consecutive_timers + 1)
-            self.timer_data = timedelta(minutes=1, seconds=0)
+            self.timer_data = timedelta(minutes=25, seconds=0)
             self.time.setText(format_timedelta(self.timer_data))
             self.timer, self.timer_events = start_thread(1, self.decrement_timer)
             self.start_button.setIcon(QtGui.QIcon(":/icons/icon-stop.png"))
