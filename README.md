@@ -1,3 +1,5 @@
+![hero-banner](.github/hero-banner.png)
+
 # Tiny applets
 A personal collection of small applets and / or command line tools that do not
 warrant their own repository. There is no particular topic these applets focus
