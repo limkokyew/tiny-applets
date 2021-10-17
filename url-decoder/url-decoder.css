@@ -84,7 +84,11 @@ button {
 
 .table-key-cell {
   color: var(--label-color);
-  padding: 10px 40px 10px 0;
+  padding: 14px 60px 14px 0;
+}
+
+.table-value-cell {
+  padding-right: 40px;
 }
 
 #main {
