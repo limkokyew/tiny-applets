@@ -66,6 +66,7 @@ Want to see how well you've done in college? Enter your grades into the
 calculator and it'll give you your final grade.
 
 ### 🌐 URL decoder
+![url-decoder](.github/url-decoder.png)
 **Languages used**: HTML, CSS, JavaScript
 
 **Libraries used**: None

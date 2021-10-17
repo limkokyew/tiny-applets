@@ -1,3 +1,4 @@
+![url-decoder](../.github/url-decoder.png)
 # 🌐 URL decoder
 **Languages used**: HTML, CSS, JavaScript
 
