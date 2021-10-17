@@ -39,11 +39,11 @@ class PomodoroMainWindow(QtWidgets.QMainWindow):
             if self.timer_events[0].is_set():
                 # Pause event is set, pause timer
                 self.timer_events[0].clear()
-                self.start_button.setIcon(QtGui.QIcon(":/icons/icon-stop.png"))
+                self.start_button.setIcon(QtGui.QIcon(":/icons/icon-play.png"))
             else:
                 # Pause event is not set, resume timer
                 self.timer_events[0].set()
-                self.start_button.setIcon(QtGui.QIcon(":/icons/icon-play.png"))
+                self.start_button.setIcon(QtGui.QIcon(":/icons/icon-stop.png"))
     
     def clear_timer(self):
         """
