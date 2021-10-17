@@ -16,8 +16,7 @@
         <a href="https://en.wikipedia.org/wiki/Percent-encoding">Percent-encoding</a>
         into the box below and press <strong>Decode</strong> to obtain the
         decoded result. You can view a table with all affected characters in the
-        link mentioned above.
-        </p>
+        link mentioned above.</p>
         <input id="url-input"
                   class="url-textarea"
                   type="text"
@@ -25,7 +24,7 @@
         <button id="decode-btn">Decode</button>
         <hr id="separator">
         <div id="url-output-wrapper">
-          <span id="url-output-label">Decoded URL</span>
+          <span class="url-output-label">Decoded URL</span>
           <div style="position: relative">
             <input id="url-output"
                    class="url-textarea"
@@ -37,6 +36,11 @@
                 <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
               </svg>
             </button>
+          </div>
+          <div id="url-query-params-wrapper">
+            <span class="url-output-label">Query parameters</span>
+            <table id="url-query-params-table">
+            </table>
           </div>
         </div>
       </div>
