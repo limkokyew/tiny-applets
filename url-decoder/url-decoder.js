@@ -10,20 +10,21 @@ const queryParamTable = document.getElementById("url-query-params-table");
  * @param {String}  url  URL as string.
  */
 function decodeURL(url) {
-  urlOutput.value = decodeURIComponent(url);
+  const decodedURL = decodeURIComponent(url)
+  urlOutput.value = decodedURL;
   const tableRows = document.querySelectorAll("#url-query-params-table tr");
   for (let tableRow of tableRows) {
     tableRow.remove();
   }
   
   // Only attempt to find query parameters if a question mark symbol is found
-  const urlParamIndex = url.indexOf("?");
+  const urlParamIndex = decodedURL.indexOf("?");
   if (urlParamIndex != -1) {
     // Search for query parameters starting from the first symbol after the
     // question mark - otherwise, the base URL will be included in the first
     // key as well
     const searchParams = new URLSearchParams(
-      url.substring(urlParamIndex + 1, url.length)
+      decodedURL.substring(urlParamIndex + 1, decodedURL.length)
     );
     searchParams.forEach((value, key) => {
       let tr = queryParamTable.insertRow();      
