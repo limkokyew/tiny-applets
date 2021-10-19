@@ -32,7 +32,7 @@ class Snake():
         self.direction = direction
         self.has_eaten_fruit = False
         self.coordinates = set()
-        self.coordinates.add(tuple(self.head.coords))
+        # self.coordinates.add(tuple(self.head.coords))
         
         # Initialize snake body
         prev_element = self.head
@@ -52,9 +52,10 @@ class Snake():
         """
         new_head_coords = np.add(self.head.coords, self.direction.value)
         new_head = SnakeBody((new_head_coords[0], new_head_coords[1]), self.head)
+        self.coordinates.add(tuple(self.head.coords))
         self.head.next_e = new_head
         self.head = new_head
-        self.coordinates.add(tuple(new_head_coords))
+        # self.coordinates.add(tuple(new_head_coords))
 
     def pop(self) -> None:
         """
@@ -112,7 +113,7 @@ class SnakeGame():
         self.game_over = False
         self.score = 0
         
-        self.vertical_wall= set()
+        self.vertical_wall = set()
         self.vertical_wall.update((0, y) for y in range(height))
         self.vertical_wall.update((width-1, y) for y in range(height))
         self.horizontal_wall = WALL_CHARACTER * width
@@ -128,7 +129,7 @@ class SnakeGame():
         """
         self.snake.step()
         self.check_collision()
-
+    
     def check_collision(self) -> None:
         """
         Check whether the snake head has collided with something. It is not
@@ -142,24 +143,29 @@ class SnakeGame():
         
         # Check whether the head collided with a wall
         if (x <= 1 or x >= self.width - 1) or (y <= 1 or y >= self.height - 1):
-            self.exit_game()
+            self.exit_game("Oh no - you've collided with a wall!")
         
         # Check whether the head collided with a fruit
-        if self.snake.head.coords == self.fruit.coords:
+        if self.fruit is not None and self.snake.head.coords == self.fruit.coords:
             self.snake.has_eaten_fruit = True
             self.fruit = self.generate_fruit()
             self.score += 10
         
-        # TODO: Check whether the head has collided with its body
-        
-
+        # Check whether the head has collided with its body
+        if self.snake.head.coords in self.snake.coordinates:
+            self.exit_game("Oh no - you've collided with your own body!")
+    
     def generate_fruit(self) -> Fruit:
         """
         Generates a new fruit in a random, currently unoccupied location.
         """
+        head_set = set()
+        head_set.add(tuple(self.snake.head.coords))
+        invalid_coordinates = self.snake.coordinates.union(head_set)
+        
         while (fruit_coords := (
             random.randint(2, self.width-2), random.randint(2, self.height-2)
-        )) not in self.snake.coordinates:
+        )) not in invalid_coordinates:
             return Fruit(fruit_coords)
 
     def set_snake_direction(self, direction) -> None:
@@ -187,15 +193,21 @@ class SnakeGame():
             screen.print_at(WALL_CHARACTER, wall_coords[0], wall_coords[1])
         
         for snake_coord in self.snake.coordinates:
-            screen.print_at("■", snake_coord[0], snake_coord[1])
+            screen.print_at("█", snake_coord[0], snake_coord[1])
         
-        screen.print_at(self.fruit, self.fruit.coords[0], self.fruit.coords[1])
+        if self.fruit:
+            screen.print_at(self.fruit, self.fruit.coords[0], self.fruit.coords[1])
 
-    def exit_game(self) -> None:
+    def exit_game(self, msg) -> None:
         """
         Sets the game_over variable to True, prompting the game loop to exit.
+        
+        Args:
+            msg: str, printed before showing the final score. Should ideally
+                 describe why the player lost.
         """
         self.game_over = True
+        print(msg)
         print(f"Nice try! You've scored {self.score} points in this session.")
 
 def main(screen) -> None:
