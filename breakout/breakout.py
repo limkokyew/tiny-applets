@@ -35,24 +35,22 @@ class Paddle():
         return self.char_display
 
 class Ball():
-    def __init__(self, x, y, distance_per_step=1, angle=90):
+    def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.distance_per_step = distance_per_step
-        self.angle = angle
+        self.dir_vector = np.array([0, 1])
         self.char_display = "●"
     
     def get_next_step(self):
         # Reduce vertical speed in order to keep horizontal and vertical speed
         # somewhat consistent
-        new_x = self.x + self.distance_per_step * cos(radians(self.angle))
-        new_y = self.y + self.distance_per_step * 0.4 * sin(radians(self.angle))
-        return new_x, new_y
+        return self.x + self.dir_vector[0], self.y + 0.4 * self.dir_vector[1]
+        # new_x = self.x + self.distance_per_step * cos(radians(self.angle))
+        # new_y = self.y + self.distance_per_step * 0.4 * sin(radians(self.angle))
+        # return new_x, new_y
     
-    def move(self):
-        self.x, self.y = self.get_next_step()
-        if (self.y < 0):
-            self.angle = 90
+    def move(self, x, y):
+        self.x, self.y = (x, y)
     
     def __repr__(self):
         return self.char_display
@@ -75,6 +73,9 @@ class BreakoutGame():
         # Vertical walls to the left and right
         # self.walls = 
         
+        self.screen_width = width
+        self.screen_height = height
+        
         self.bricks = []
         brick_width = width // n_bricks_col
         for y in range(5):
@@ -83,18 +84,26 @@ class BreakoutGame():
     
     def step(self):
         self.paddle.move()
-        
         next_x, next_y = self.ball.get_next_step()
+        
+        # Paddle collision
         if ((next_x >= self.paddle.x and next_x <= self.paddle.x + self.paddle.width) and
            (next_y >= self.paddle.y and next_y <= self.paddle.y + 1)):
            # Calculate the angle between ball and paddle as if the center of the
            # paddle is lower than it actually is - this ensures that resulting
            # angles do not change too much even with tiny changes
-           self.ball.angle = degrees(atan2(
-               self.ball.y - (self.paddle.y + 5),
-               self.ball.x - (self.paddle.x + (self.paddle.width // 2))
-           ))
-        self.ball.move()
+           paddle_x = self.paddle.x + (self.paddle.width // 2)
+           paddle_y = self.paddle.y + 5
+           dir_vector = np.array([self.ball.x, self.ball.y]) - np.array([paddle_x, paddle_y])
+           dir_vector /= np.linalg.norm(dir_vector)
+           self.ball.dir_vector = dir_vector
+        # Boundary collision
+        elif next_x < 0 or next_x > self.screen_width or next_y < 0:
+            pass
+        # Brick collision
+        else:
+            pass
+        self.ball.move(next_x, next_y)
     
     def print_to_screen(self, screen):
         screen.print_at(self.paddle, self.paddle.x, self.paddle.y)
