@@ -161,3 +161,12 @@ yourself!
 
 Yet another classic and equally as popular game. Take control of a paddle and
 bounce the ball back and forth to destroy bricks!
+
+### 🎾 Pong
+**Languages used**: Python
+
+**Libraries used**: ``asciimatics``, ``pynput``
+
+A fairly similar game to Breakout - only this time, you are not playing against
+a bunch of inanimate bricks but another player with their own paddle! Try to
+bounce the ball into your opponent's goal!
