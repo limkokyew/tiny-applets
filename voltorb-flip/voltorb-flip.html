@@ -10,17 +10,25 @@
     <title>Voltorb Flip</title>
   </head>
   <body>
+    <div id="blocker">
+      <div id="blocker-popup">
+      <h2>Game Over</h2>
+      <p>Well done! You've scored a total of x points in this round. If you
+      would like to continue, click the "Start new game" button below.</p>
+      <button id="blocker-restart-button">Start new game</button>
+      </div>
+    </div>
     <div id="main" class="flex flex-row">
       <div id="board-container" class="flex flex-align-center flex-justify-center">
-        <!-- <div id="tile-container" class="flex">
-        </div> -->
+        <!-- Not an empty element! -->
       </div>
       <div id="sidebar">
         <h1>Voltorb Flip</h1>
-        <p>The classic Game Corner game from non-Japanese versions of Pokémon
-        HeartGold / SoulSilver. Flip tiles to increase your score but avoid
-        flipping tiles where Voltorbs are hiding underneath - or your score
-        will disappear into thin air!
+        <p>The classic Game Corner game from non-Japanese versions of
+        <a href="https://en.wikipedia.org/wiki/Pok%C3%A9mon_HeartGold_and_SoulSilver">Pokémon HeartGold / SoulSilver</a>.
+        Flip tiles to increase your score but avoid flipping tiles where
+        Voltorbs are hiding underneath - or your score will disappear into thin
+        air!
         </p>
         <p>
         Each row and column shows the sum of multipliers you can obtain as well
@@ -30,7 +38,7 @@
         <div id="hint-container" class="flex flex-col">
           <div style="background: #58B2614c" class="hint flex flex-row flex-align-center">
             <span style="background: #58B261" class="hint-box flex flex-align-center flex-justify-center">1</span>
-            <p style="color: #58B261">Multiplies your current score with the amount specified.</p>
+            <p style="color: #58B261">Multiplies your current score with the amount specified (×1, ×2, ×3).</p>
           </div>
           <div style="background: #B257574c" class="hint flex flex-row flex-align-center">
           <span style="background: #B25757" class="hint-box flex flex-align-center flex-justify-center">1</span>
@@ -40,15 +48,15 @@
         <div id="score-container" class="flex flex-col">
           <div>
             <span class="label label-key">Current level</span>
-            <span class="label label-value">Lv. 8</span>
+            <span id="flip-level" class="label label-value">Lv. 1</span>
           </div>
           <div>
             <span class="label label-key">Points collected in current game</span>
-            <span class="label label-value">150</span>
+            <span id="flip-current-score" class="label label-value">0</span>
           </div>
           <div>
             <span class="label label-key">Total points</span>
-            <span class="label label-value">300</span>
+            <span id="flip-total-score" class="label label-value">0</span>
           </div>
         </div>
       </div>
